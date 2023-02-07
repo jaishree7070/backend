@@ -1,9 +1,9 @@
 const express=require("express");
 
 const router=express.Router();
+const placeControllers=require("./places-controllers")
 
-router.get('/',(req,res,next)=>{
-    console.log("GET Req in places");
-    res.json({message:"It works"});
-})
+
+router.get('/:pid',placeControllers.getPlaceByPlaceId)
+router.get('/user/:uid',placeControllers.getPlaceByUserId)
 module.exports=router;
